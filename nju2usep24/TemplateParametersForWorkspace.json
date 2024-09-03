@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "nju2usep24"
+		},
+		"demoblob_connectionString": {
+			"value": ""
+		},
+		"nju2usep24-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:nju2usep24.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"demokv_properties_typeProperties_baseUrl": {
+			"value": "https://nju2usep24.vault.azure.net/"
+		},
+		"nju2usep24-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://njsep24demo.dfs.core.windows.net"
+		},
+		"nyc_tlc_yellow_sasUri": {
+			"value": ""
+		}
+	}
+}
