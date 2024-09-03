@@ -1,0 +1,20 @@
+{
+	"name": "DestinationDataset_45z",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "nju2usep24-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "SILVER/trips",
+				"fileSystem": "synapsedatalake"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
