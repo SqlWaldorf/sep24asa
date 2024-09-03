@@ -1,0 +1,20 @@
+{
+	"name": "DestinationDataset_u5f",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "nju2usep24-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "SILVER/stations",
+				"fileSystem": "synapsedatalake"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
