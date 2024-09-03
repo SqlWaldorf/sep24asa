@@ -2,7 +2,7 @@
 	"name": "Trigger_u5f",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "copystations",
