@@ -1,0 +1,26 @@
+{
+	"name": "Trigger_u5f",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "copystations",
+				"type": "PipelineReference"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 4,
+			"startTime": "2024-09-03T10:26:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"count": 2,
+				"intervalInSeconds": 300
+			},
+			"dependsOn": []
+		}
+	}
+}
