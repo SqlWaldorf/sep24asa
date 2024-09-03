@@ -50,6 +50,92 @@
 					"validateDataConsistency": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "station_id",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "station_id",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "name",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "lat",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "lat",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "long",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "long",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "dockcount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "dockcount",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "landmark",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "landmark",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "installation",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "installation",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
