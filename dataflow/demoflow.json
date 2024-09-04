@@ -1,0 +1,104 @@
+{
+	"name": "demoflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SourceDataset_45z",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "Parquet1",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "split1"
+				},
+				{
+					"name": "select1"
+				},
+				{
+					"name": "select2"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {Trip ID} as integer,",
+				"          Duration as short,",
+				"          {Start Date} as timestamp 'MM/dd/yyyy HH:mm',",
+				"          {Start Station} as string,",
+				"          {Start Terminal} as short,",
+				"          {End Date} as timestamp 'MM/dd/yyyy HH:mm',",
+				"          {End Station} as string,",
+				"          {End Terminal} as short,",
+				"          {Bike #} as short,",
+				"          {Subscriber Type} as string,",
+				"          {Zip Code} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 split(Duration>0,",
+				"     disjoint: false) ~> split1@(regular, weird)",
+				"split1@regular select(mapColumn(",
+				"          {Trip ID},",
+				"          Duration,",
+				"          {Start Date},",
+				"          {Start Station},",
+				"          {Start Terminal},",
+				"          {End Date},",
+				"          {End Station},",
+				"          {End Terminal},",
+				"          {Zip Code}",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"split1@weird select(mapColumn(",
+				"          {Trip ID},",
+				"          Duration,",
+				"          {Start Date},",
+				"          {Start Station},",
+				"          {Start Terminal},",
+				"          {End Date},",
+				"          {End Station},",
+				"          {End Terminal},",
+				"          {Bike #},",
+				"          {Subscriber Type},",
+				"          {Zip Code}",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2",
+				"select2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink2"
+			]
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"name": "Parquet1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "nju2usep24-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "SILVER/dataflowoutput",
+				"fileSystem": "synapsedatalake"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
