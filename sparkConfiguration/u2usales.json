@@ -1,0 +1,14 @@
+{
+	"name": "u2usales",
+	"properties": {
+		"configs": {
+			"appname": "u2udemo"
+		},
+		"created": "2024-09-06T09:40:58.0170000+02:00",
+		"createdBy": "Nico.Jacobs@u2uaad2.onmicrosoft.com",
+		"annotations": [],
+		"configMergeRule": {
+			"artifact.currentOperation.appname": "replace"
+		}
+	}
+}
